@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 
 	//"project/internal/auth"
@@ -122,6 +123,8 @@ func (h *handler) postJob(c *gin.Context) {
 		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"msg": http.StatusText(http.StatusInternalServerError)})
 		return
 	}
+
+	fmt.Println("'''''''''''''''''", jobCreation)
 
 	validate := validator.New()
 	err = validate.Struct(&jobCreation)

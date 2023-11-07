@@ -46,7 +46,7 @@ func Connection() (*gorm.DB, error) {
 	if err != nil {
 		return nil, fmt.Errorf("auto migration failed: %w ", err)
 	}
-	err = db.Migrator().AutoMigrate(&model.Job{})
+	err = db.Migrator().AutoMigrate(&model.Job{}, &model.Qualification{}, &model.JobLocations{}, &model.JobType{}, &model.Shift{}, &model.TechnologyStac{}, &model.WorkMode{})
 	if err != nil {
 		return nil, fmt.Errorf("auto migration failed: %w ", err)
 	}

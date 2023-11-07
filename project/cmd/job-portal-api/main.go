@@ -60,7 +60,7 @@ func startApp() error {
 	}
 
 	api := http.Server{ //server config and settimngs
-		Addr:    ":8091",
+		Addr:    ":8092",
 		Handler: handlers.Api(a, se),
 	}
 	api.ListenAndServe()

@@ -40,7 +40,21 @@ func (s *Service) GetCompany(id int) (model.Company, error) {
 }
 
 func (s *Service) JobCreate(nj model.CreateJob, id uint64) (model.Job, error) {
-	job := model.Job{JobTitle: nj.JobTitle, JobSalary: nj.JobSalary, Uid: id}
+	job := model.Job{
+		JobTitle:       nj.JobTitle,
+		JobSalary:      nj.JobSalary,
+		MinNP:          nj.MinNP,
+		MaxNP:          nj.MaxNP,
+		Budget:         nj.Budget,
+		Description:    nj.Description,
+		MinExp:         nj.MinExp,
+		MaxMax:         nj.MaxMax,
+		Qualification:  nj.Qualification,
+		Shift:          nj.Shift,
+		JobType:        nj.JobType,
+		JobLocations:   nj.JobLocations,
+		WorkMode:       nj.WorkMode,
+		TechnologyStac: nj.TechnologyStac}
 	cu, err := s.r.CreateJob(job)
 	if err != nil {
 		log.Error().Err(err).Msg("couldnot create user")
